@@ -164,7 +164,8 @@ Notes:
 	/* ###### Exports percent of Imports ###### */
 	/* ######################################## */
 
-	/* (lastest_exports loaded above) */
+	/* (census exports data loaded above) */
+	%get_latest_data(exports, latest_exports);
 
 	%get_data(census, imports);
 	%ensure_numeric(imports, mfg_imports);
