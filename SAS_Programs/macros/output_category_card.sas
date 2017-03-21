@@ -24,6 +24,7 @@ Notes:
 		select category, subcategory
 			,new_year, new_stat, new_rank, new_grade
 			,old_year, old_stat, old_rank, old_grade
+			,new_stat-old_stat as diff, (new_stat-old_stat)/old_stat as pctchg
 		from out.all_details
 		where state = "&state."
 		order by sort_order
@@ -47,6 +48,8 @@ Notes:
 			old_stat="Score &prev_year"
 			old_rank="Rank &prev_year."
 			old_grade="Grade &prev_year"
+			diff="Difference &curr_year - &prev_year"
+			pctchg="Percent change &curr_year - &prev_year"
 			;
 	run;
 
