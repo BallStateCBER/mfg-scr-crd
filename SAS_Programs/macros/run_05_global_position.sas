@@ -36,25 +36,46 @@ Notes:
 	quit;
 
 	%assert_row_count_equals(glob_pos_data, 50);
-
 	
-	/* ############################# */
-	/* ### Manufacturing Exports ### */
-	/* ############################# */
+	/* ################################################ */
+	/* ### Durable Manufacturing Exports per Capita ### */
+	/* ################################################ */
 
-	%get_data(census, exports);
-	%ensure_numeric(exports, mfg_exports);
-	%ensure_numeric(exports, reexports);
-	%get_latest_data(exports, latest_exports);
+	%get_data(TSE, durable_exports);
+	%ensure_numeric(durable_exports, dur_exp);
+	%get_latest_data(durable_exports, latest_dur_exp);
 
 	%get_data(census, popset);
 	%ensure_numeric(popset, popest);
 
 	proc sql;
 		create table glob_pos_data as
-		select d.*, e.year as exports_year, e.mfg_exports/p.popest as mfg_exp_per_capita
+		select d.*, e.year as dur_exp_year, e.dur_exp/p.popest as dur_exp_per_capita
 		from glob_pos_data d
-		inner join latest_exports e
+		inner join latest_dur_exp e
+			on d.fips = e.fips
+		inner join popset p
+			on e.fips = p.fips and e.year = p.year
+		;
+	quit;
+
+	%assert_row_count_equals(glob_pos_data, 50);
+	
+	/* #################################################### */
+	/* ### Non-Durable Manufacturing Exports per Capita ### */
+	/* #################################################### */
+
+	%get_data(TSE, non_durable_exports);
+	%ensure_numeric(non_durable_exports, nondur_exp);
+	%get_latest_data(non_durable_exports, latest_non_dur_exp);
+
+	/* (Population data loaded above) */
+
+	proc sql;
+		create table glob_pos_data as
+		select d.*, e.year as non_dur_exp_year, e.nondur_exp/p.popest as non_dur_exp_per_capita
+		from glob_pos_data d
+		inner join latest_non_dur_exp e
 			on d.fips = e.fips
 		inner join popset p
 			on e.fips = p.fips and e.year = p.year
@@ -92,7 +113,9 @@ Notes:
 	/* ### Export Growth ### */
 	/* ##################### */
 
-	/* census\exports data loaded above */
+	%get_data(census, exports);
+	%ensure_numeric(exports, mfg_exports);
+	%ensure_numeric(exports, reexports);
 	%get_latest_data(exports, historic_foreign_trade, num_years = 3);
 	
 	proc sql;
@@ -141,7 +164,8 @@ Notes:
 	/* ###### Exports percent of Imports ###### */
 	/* ######################################## */
 
-	/* (lastest_exports loaded above) */
+	/* (census exports data loaded above) */
+	%get_latest_data(exports, latest_exports);
 
 	%get_data(census, imports);
 	%ensure_numeric(imports, mfg_imports);
@@ -191,7 +215,8 @@ Notes:
 		data = glob_pos_data
 		out=glob_pos_data;
 		var 
-			mfg_exp_per_capita
+			dur_exp_per_capita
+			non_dur_exp_per_capita
 			PCI_Foreign_Owned
 			export_growth
 			demand_adaptability
@@ -199,7 +224,8 @@ Notes:
 			reexp_per_capita
 			;
 		ranks
-			rank_exports
+			rank_dur_exp
+			rank_non_dur_exp
 			rank_PCI_Foreign
 			rank_export_growth
 			rank_Demand_Adaptability
