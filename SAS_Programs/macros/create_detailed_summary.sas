@@ -79,7 +79,8 @@ Notes:
 	
 	/* ### 05_Global_Position ### */
 
-	%_append_category(values_05_global_position, "Global Position", "Manufacturing Exports per Capita", 501, exports_year, mfg_exp_per_capita, rank_exports);
+	%_append_category(values_05_global_position, "Global Position", "Durable Exports per Capita", 500, dur_exp_year, dur_exp_per_capita, rank_dur_exp);
+	%_append_category(values_05_global_position, "Global Position", "Non-Durable Exports per Capita", 501, non_dur_exp_year, non_dur_exp_per_capita, rank_non_dur_exp);
 	%_append_multiyear_category(values_05_global_position, "Global Position", "Manufacturing Exports Growth", 502, growth_from_year, growth_to_year, export_growth, rank_export_growth);
 	%_append_category(values_05_global_position, "Global Position", "Personal Income per Capita Derived from Foreign-Owned Manufacturers", 503
 			,PI_FOM_year, PCI_foreign_owned, rank_PCI_foreign);
