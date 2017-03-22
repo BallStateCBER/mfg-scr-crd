@@ -61,7 +61,7 @@ Notes:
 	/* ###### Retention Rate ###### */
 	/* ############################ */
 
-	%get_data(nces, retention_rates);
+	%get_data(nchems, retention_rates);
 	%ensure_numeric(retention_rates, reten_rt);
 	%get_latest_data(retention_rates, retention_latest);
 
@@ -81,7 +81,7 @@ Notes:
 	/* #### AA Graduation Rate #### */
 	/* ############################ */
 
-	%get_data(nces, aa_grad_rates);
+	%get_data(nchems, aa_grad_rates);
 	%ensure_numeric(aa_grad_rates, aa_grad_150);
 	%get_latest_data(aa_grad_rates, aa_grad_latest);
 
