@@ -79,4 +79,5 @@ libname shared %unquote(%str(%'&rootpath.SAS_Shared_Data%')); /* for shared data
 %run_90_summarize_data();
 %run_91_state_details();
 %run_92_change_summary();
+%run_99_publications_summary();
 */

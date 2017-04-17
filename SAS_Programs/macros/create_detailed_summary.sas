@@ -44,7 +44,7 @@ Notes:
 	%_append_category(values_02_logistics, "Logistics", "Value of Shipped Goods (Subcategory)", 206, flows_year, ship_val, score_ship_val);
 	%_append_category(values_02_logistics, "Logistics", "Tons of Shipped Goods (Subcategory)", 207, flows_year, ship_tons, score_ship_tons);
 	%_append_category(values_02_logistics, "Logistics", "Ton-Miles of Shipped Goods (Subcategory)", 208, flows_year, ship_tonmiles, score_ship_tonmiles);
-	%_append_multiyear_category(values_02_logistics, "Logistics", "State and Local Infrasturcture Expenditures", 209, hwy_start, hwy_end,avg_hwy_exp_perc, rank_hwy_exp);
+	%_append_multiyear_category(values_02_logistics, "Logistics", "State and Local Infrastructure Expenditures", 209, hwy_start, hwy_end,avg_hwy_exp_perc, rank_hwy_exp);
 	%_append_category(values_02_logistics, "Logistics", "Obligation of FHWA Funds per Capita", 211, FHWA_year, total_fhwa_funds, rank_tot_fhwa_funds);
 	%_append_final_category(values_02_logistics, "Logistics", 299);
 
@@ -85,7 +85,7 @@ Notes:
 			,PI_FOM_year, PCI_foreign_owned, rank_PCI_foreign);
 	%_append_category(values_05_global_position, "Global Position", "Demand Adaptability Index", 504, adapt_year, demand_adaptability, rank_demand_adaptability);
 	%_append_category(values_05_global_position, "Global Position", "Exports per Import", 505, exp_per_imp_year, exp_per_imp, rank_exp_per_imp);
-	%_append_category(values_05_global_position, "Global Position", "Reexports per Capita", 506, reexp_year, reexp_per_capita, rank_reexp);
+	%_append_category(values_05_global_position, "Global Position", "Re-exports per Capita", 506, reexp_year, reexp_per_capita, rank_reexp);
 	%_append_final_category(values_05_global_position, "Global Position", 599);
 
 
