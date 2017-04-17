@@ -243,7 +243,6 @@ Notes:
 	/* ###################################### */
 	
 	%get_data(dot_fhwa, infr_inv);
-	%ensure_numeric(infr_inv, oblig_fed_aid_acc);
 	%ensure_numeric(infr_inv, oblig_tot);
 	%get_latest_data(infr_inv, latest_inf_inv);
 
@@ -251,7 +250,7 @@ Notes:
 
 	proc sql;
 		create table lgstc_data as
-		select d.*, i.year as FHWA_year, i.oblig_fed_aid_acc as federal_fhwa_funds, i.oblig_tot as total_fhwa_funds
+		select d.*, i.year as FHWA_year, i.oblig_tot as total_fhwa_funds
 		from lgstc_data d
 		inner join latest_inf_inv i
 			on d.fips = i.fips
@@ -277,7 +276,6 @@ Notes:
 			rail_flows_per_capita
 			road_flows_per_capita
 			avg_hwy_exp_perc
-			federal_fhwa_funds
 			total_fhwa_funds
 			;
 		ranks
@@ -286,7 +284,6 @@ Notes:
 			rank_rail_flows
 			rank_road_flows
 			rank_hwy_exp
-			rank_fed_fhwa_funds
 			rank_tot_fhwa_funds
 			;
 	run;

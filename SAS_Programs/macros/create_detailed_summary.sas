@@ -45,8 +45,7 @@ Notes:
 	%_append_category(values_02_logistics, "Logistics", "Tons of Shipped Goods (Subcategory)", 207, flows_year, ship_tons, score_ship_tons);
 	%_append_category(values_02_logistics, "Logistics", "Ton-Miles of Shipped Goods (Subcategory)", 208, flows_year, ship_tonmiles, score_ship_tonmiles);
 	%_append_multiyear_category(values_02_logistics, "Logistics", "State and Local Infrastructure Expenditures", 209, hwy_start, hwy_end,avg_hwy_exp_perc, rank_hwy_exp);
-	%_append_category(values_02_logistics, "Logistics", "Obligation of FHWA Funds per Capita (Federal)", 210, FHWA_year, federal_fhwa_funds, rank_fed_fhwa_funds);
-	%_append_category(values_02_logistics, "Logistics", "Obligation of FHWA Funds per Capita (All Sources)", 211, FHWA_year, total_fhwa_funds, rank_tot_fhwa_funds);
+	%_append_category(values_02_logistics, "Logistics", "Obligation of FHWA Funds per Capita", 211, FHWA_year, total_fhwa_funds, rank_tot_fhwa_funds);
 	%_append_final_category(values_02_logistics, "Logistics", 299);
 
 	
