@@ -68,7 +68,7 @@ Notes:
 			prod_grd="Productivity and Innovation"
 			tax_grd="Tax Climate"
 			dvrs_grd="Diversification"
-			fscl_grd="Excpected Fiscal Liability Gap"
+			fscl_grd="Expected Fiscal Liability Gap"
 			;
 	run;
 
